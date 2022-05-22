@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/mnt/c/Users/Amir/Desktop/Studies/year_B/semester_b/sys_prog_b/Ex5/orgchart-b-main'
+make: Nothing to be done for 'run'.
+make: Leaving directory '/mnt/c/Users/Amir/Desktop/Studies/year_B/semester_b/sys_prog_b/Ex5/orgchart-b-main'
+ 
