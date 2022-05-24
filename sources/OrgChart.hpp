@@ -13,6 +13,10 @@ namespace ariel
         public:
             OrgChart() : mc(0){}
             ~OrgChart() = default;
+            OrgChart (OrgChart&) = default;
+            OrgChart(OrgChart && ) = default;
+            OrgChart& operator =( OrgChart const &) = default;
+            OrgChart& operator=( OrgChart&&) = default;
 
             OrgChart add_root(std::string);
             OrgChart add_sub(std::string, std::string);
@@ -20,7 +24,7 @@ namespace ariel
             // Iterator begin_level_order();
 
             //getters-setters
-            size_t get_mc(){return mc;}
+            size_t get_mc() const {return mc;}
             void increase_mc(){mc++;}
             NodeRef get_root() const {return root;}
 

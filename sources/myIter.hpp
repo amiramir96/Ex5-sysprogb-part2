@@ -5,10 +5,10 @@
 
 namespace ariel
 {
-    #define EMPTY_I -1
-    #define PRE_ORDER 1
-    #define LEVEL_ORDER 2
-    #define REVERSE_LEVEL_ORDER 3
+    constexpr int EMPTY_I = -1;
+    constexpr int PRE_ORDER = 1;
+    constexpr int LEVEL_ORDER = 2;
+    constexpr int REVERSE_LEVEL_ORDER = 3;
 
     class Node;
     class OrgChart;
@@ -17,10 +17,14 @@ namespace ariel
     {
         using NodeRef = std::shared_ptr<Node>;
         public:
-            MyIter(){};
+            MyIter(): iter_mc(0), my_org(nullptr){}
             MyIter(OrgChart&, int);
             MyIter(OrgChart& org, std::list<NodeRef> plist);
             ~MyIter() = default;
+            MyIter (MyIter&) = default;
+            MyIter(MyIter && ) = default;
+            MyIter& operator =( MyIter const &) = default;
+            MyIter& operator=( MyIter&&) = default;
 
             // forward to next item
             MyIter& operator++();

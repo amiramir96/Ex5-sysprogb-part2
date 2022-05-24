@@ -17,7 +17,7 @@ namespace ariel
 
         }
         // this->mc++; not used in the tests
-        this->root.get()->level = 0;
+        this->root.get()->set_level(0);
         return *this;
     }
 
@@ -37,7 +37,7 @@ namespace ariel
         // set the supervizer and its sub as parent <-> child
         superv->add_child(std::make_shared<Node>(subject));
         search_node(superv, subject).get()->set_parent(superv);
-        search_node(superv, subject).get()->level = superv.get()->level+1;
+        search_node(superv, subject).get()->set_level(superv.get()->get_level()+1);
 
         this->mc++;
         return *this;
@@ -64,7 +64,7 @@ namespace ariel
         {   
             NodeRef temp = helper.top();
             helper.pop();
-            for (int j = temp.get()->level; j > 0; j--) // level decides amount of tabs \t
+            for (int j = temp.get()->get_level(); j > 0; j--) // level decides amount of tabs \t
             {
                 res.append("\t");
 
